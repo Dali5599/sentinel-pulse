@@ -1,0 +1,109 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sentinel-pulse"
+version = "0.1.0"
+description = "Cross-platform CLI daemon and diagnostic tool for lightweight system resource monitoring and webhook alerting."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+    { name = "Requin-Coder", email = "dev@sentinelpulse.local" }
+]
+keywords = [
+    "monitoring",
+    "system-metrics",
+    "daemon",
+    "cpu",
+    "memory",
+    "disk",
+    "network",
+    "alerts",
+    "discord",
+    "telegram",
+    "webhooks"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Monitoring",
+    "Topic :: System :: Systems Administration",
+    "Typing :: Typed",
+]
+dependencies = [
+    "psutil>=5.9.6",
+    "httpx>=0.25.2",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.1.0",
+    "rich>=13.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.3",
+    "pytest-asyncio>=0.21.1",
+    "mypy>=1.7.1",
+    "ruff>=0.1.6",
+    "types-psutil>=5.9.5.17",
+]
+
+[project.scripts]
+sentinel-pulse = "sentinel_pulse.cli:main"
+sentinel = "sentinel_pulse.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/requin-coder/sentinel-pulse"
+Documentation = "https://github.com/requin-coder/sentinel-pulse#readme"
+Repository = "https://github.com/requin-coder/sentinel-pulse.git"
+Issues = "https://github.com/requin-coder/sentinel-pulse/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sentinel_pulse"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "N",
+    "W",
+    "ASYNC",
+    "B",
+    "C4",
+    "UP",
+    "ARG",
+    "PTH",
+    "RET",
+]
+ignore = []
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module = ["psutil.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers"
+asyncio_mode = "auto"
+testpaths = ["tests"]
