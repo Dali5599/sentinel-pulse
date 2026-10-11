@@ -4,6 +4,13 @@
 
 # Sentinel Pulse 🦈⭐
 
+<p align="center">
+  <a href="https://dali5599.github.io/sentinel-pulse/">
+    <img src="https://img.shields.io/badge/Live_Demo-Interactive_Web_App-00c853?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Demo">
+  </a>
+</p>
+
+
 [![Stars](https://img.shields.io/github/stars/Dali5599/sentinel-pulse?style=flat-square&color=ffd700)](https://github.com/Dali5599/sentinel-pulse/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/Dali5599/sentinel-pulse/pulls)
